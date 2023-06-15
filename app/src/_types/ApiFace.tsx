@@ -5,6 +5,7 @@ import CollectionFace from "./CollectionFace";
 import ProfileFace from "./ProfileFace";
 import TopicFace from "./TopicFace";
 import PhotoFace from "./ThePhotoFace";
+import { Full } from "unsplash-js/dist/methods/photos/types";
 
 export interface GetPhotoListResponse {
     raw: ApiResponse<{
@@ -49,7 +50,7 @@ export interface GetCollectionInfoResponse {
 }
 
 export interface GetThePhoto {
-    raw: ApiResponse<PhotoFace> | null;
+    raw: ApiResponse<PhotoFace | Full> | null;
     error: boolean;
 }
 
