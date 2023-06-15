@@ -185,7 +185,7 @@ export default function About() {
                     <h2 className="text-3xl font-bold">Is PicArchive truly free? Absolutely.</h2>
                     <p className="font-normal py-2 pb-5 text-lg opacity-70">
                         PicArchive, just like Unsplash, is built on the generosity of a vibrant community of photographers who contribute their incredible images to ignite creativity worldwide.
-                        Whether you choose to sign up for free or not, you gain unrestricted access to our extensive collection of over 3 million photos, all licensed under PicArchive's free-to-use license.
+                        Whether you choose to sign up for free or not, you gain unrestricted access to our extensive collection of over 3 million photos, all licensed under PicArchive&apos;s free-to-use license.
                         Feel empowered to do whatever you want with these images, and let your creativity soar.
                     </p>
                     <Link props={{
@@ -246,7 +246,7 @@ export default function About() {
                     <p className="font-normal py-2 pb-5 text-lg opacity-70 max-w-[800px]">
                         At Picarchive, we believe that everyone has the ability to contribute their unique perspective to the world of photography.
                         Our platform serves as a meeting point for creators and their audience, fostering a vibrant community where individuals of all backgrounds can become a source of creativity.
-                        Whether you're an amateur enthusiast or a seasoned professional, Picarchive welcomes your images with open arms.
+                        Whether you&apos;re an amateur enthusiast or a seasoned professional, Picarchive welcomes your images with open arms.
                         Join us on Picarchive and unleash your creative potential as we embark on a visual journey through an expansive collection of authentic,
                         top-tier photographs created by talented photographers from around the globe.
                     </p>
