@@ -1,11 +1,12 @@
+"use client";
 import { picarchiveDescriptions } from '../../_meta/webText';
+import { RootState } from '../../_rtk/Store';
 import { useEffect, useState } from 'react';
 import { random } from '../../_functions';
+import { useSelector } from 'react-redux';
 import SearchForm from '../Search/SearchForm';
 import BasicLink from '../Links/BasicLink';
 import Image from 'next/image';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../_rtk/Store';
 
 const topicsData = [
     "mountain",

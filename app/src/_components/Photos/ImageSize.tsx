@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 
 const SingleImageSizeChecker = ({ imageUrl, style }: { imageUrl: string, style?: string }) => {

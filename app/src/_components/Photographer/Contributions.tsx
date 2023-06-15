@@ -1,3 +1,4 @@
+"use client";
 import { BsFillFolderFill, BsHeartFill } from "react-icons/bs";
 import { MdPhotoSizeSelectActual } from "react-icons/md";
 import { useState } from "react";
