@@ -50,7 +50,7 @@ export interface GetCollectionInfoResponse {
 }
 
 export interface GetThePhoto {
-    raw: ApiResponse<PhotoFace | Full> | null;
+    raw: ApiResponse<PhotoFace> | null;
     error: boolean;
 }
 
