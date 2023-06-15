@@ -13,7 +13,7 @@ type Props = {
     }
 }
 
-export async function generateMetadata({ params: { photoId } }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params: { photoId } }: Props): Promise<Metadata> {
     // read route params
     const { raw, error } = await getPhoto(photoId);
 
@@ -26,11 +26,14 @@ export async function generateMetadata({ params: { photoId } }: Props, parent?: 
         const res = raw?.response;
         const tags = res?.tags.map(item => { return item.title });
 
+        const openGraphMeta = openGraph({ title: res?.alt_description, description: res?.description, url: `/@${res?.user.username}`, image: res?.urls.small });
+        const twitterMeta = twitter(res?.alt_description, res?.description, res?.user.twitter_username, res?.urls.small);
+
         return {
             title: res?.alt_description || `Photo by ${res?.user.name}`,
             description: res?.description || res?.alt_description || metadataObj.collections.desc,
-            openGraph: openGraph({ title: res?.alt_description, description: res?.description, url: `/@${res?.user.username}`, image: res?.urls.small }),
-            twitter: twitter(res?.alt_description, res?.description, res?.user.twitter_username, res?.urls.small),
+            openGraph: openGraphMeta || null,
+            twitter: twitterMeta || null,
             keywords: tags ? keywords([...tags]) : [],
             authors: [{ name: res?.user.name }],
         }

@@ -12,7 +12,7 @@ type Props = {
     }
 }
 
-export async function generateMetadata({ params: { photographers } }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params: { photographers } }: Props): Promise<Metadata> {
     // read route params
     const user = decodeURIComponent(photographers);
     // const isUserTrue = user.startsWith("@");
@@ -28,11 +28,14 @@ export async function generateMetadata({ params: { photographers } }: Props, par
         const res: ProfileFace = raw.response;
         const tags = res.tags.custom.map(item => { return item.title });
 
+        const openGraphMeta = openGraph({ title: res?.name, description: res?.bio, url: `/@${res?.username}`, image: res.profile_image.large });
+        const twitterMeta = twitter(res?.name, res?.bio, res.twitter_username, res?.profile_image.large);
+
         return {
             title: res?.name || "Picarchive",
             description: res?.bio || metadataObj.collections.desc,
-            openGraph: openGraph({ title: res?.name, description: res?.bio, url: `/@${res?.username}`, image: res.profile_image.large }),
-            twitter: twitter(res?.name, res?.bio, res.twitter_username, res?.profile_image.large),
+            openGraph: openGraphMeta || null,
+            twitter: twitterMeta || null,
             keywords: tags ? keywords([...tags]) : [],
             authors: [{ name: res.name }],
         }

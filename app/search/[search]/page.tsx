@@ -8,7 +8,7 @@ type Props = {
   }
 }
 
-export async function generateMetadata({ params: { search } }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params: { search } }: Props): Promise<Metadata> {
   const decodePath = decodeURIComponent(search);
   const tags = decodePath.split(" ")
 
