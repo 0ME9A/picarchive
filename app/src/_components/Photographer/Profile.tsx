@@ -11,7 +11,7 @@ import Tag from "../Links/Tag";
 import Image from "next/image";
 
 
-export default function Profile({ userData, error }: { userData: ProfileFace | null, error: boolean }) {
+export default function Profile({ userData, error }: { userData: ProfileFace | null | undefined, error: boolean }) {
     if (!userData || error) return <SKphotographer />
 
     return (

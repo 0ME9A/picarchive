@@ -6,7 +6,7 @@ import PhotosSkeleton from "../../_skeleton/Photos/SKPhotos";
 import Card from "./Card";
 
 interface PhotoListFace {
-    photos: BasicPhotoFace[];
+    photos: BasicPhotoFace[] | null | undefined;
     total?: number;
     error: boolean;
 }
@@ -43,44 +43,47 @@ export default function PhotoList({ photos, total = 0, error }: PhotoListFace) {
     }, [isGlitch])
 
     if (!isMount || isGlitch) return <PhotosSkeleton />
-    if (!error && photos.length === 0) return <PhotosSkeleton />
 
-    if (windowSize.width >= 1024) {
-        const photosList = splitArrayByCount(photos, 3);
-        return (
-            <section className="xl:container w-full mx-auto grid lg:grid-cols-3 gap-5 my-5 px-5">
-                <section className="grid gap-5 h-fit">
-                    {photosList[0].map(item => <Card key={random()} photo={item} />)}
+    if (photos && photos.length > 0) {
+        if (windowSize.width >= 1024) {
+            const photosList = splitArrayByCount(photos, 3);
+            return (
+                <section className="xl:container w-full mx-auto grid lg:grid-cols-3 gap-5 my-5 px-5">
+                    <section className="grid gap-5 h-fit">
+                        {photosList[0].map(item => <Card key={random()} photo={item} />)}
+                    </section>
+                    <section className="grid gap-5 h-fit">
+                        {photosList[1].map(item => <Card key={random()} photo={item} />)}
+                    </section>
+                    <section className="grid gap-5 h-fit">
+                        {photosList[2].map(item => <Card key={random()} photo={item} />)}
+                    </section>
                 </section>
-                <section className="grid gap-5 h-fit">
-                    {photosList[1].map(item => <Card key={random()} photo={item} />)}
+            )
+        }
+        else if (windowSize.width >= 640 && windowSize.width < 1024) {
+            const photosList = splitArrayByCount(photos, 2);
+            return (
+                <section className="xl:container w-full mx-auto grid grid-cols-2 gap-3 my-3 px-3">
+                    <section className="grid gap-5 h-fit">
+                        {photosList[0].map(item => <Card key={random()} photo={item} />)}
+                    </section>
+                    <section className="grid gap-5 h-fit">
+                        {photosList[1].map(item => <Card key={random()} photo={item} />)}
+                    </section>
                 </section>
-                <section className="grid gap-5 h-fit">
-                    {photosList[2].map(item => <Card key={random()} photo={item} />)}
+            )
+        }
+        else {
+            return (
+                <section className="w-full mx-auto grid gap-5 my-5">
+                    <section className="grid gap-5 h-fit">
+                        {photos.map(item => <Card key={random()} photo={item} />)}
+                    </section>
                 </section>
-            </section>
-        )
-    }
-    else if (windowSize.width >= 640 && windowSize.width < 1024) {
-        const photosList = splitArrayByCount(photos, 2);
-        return (
-            <section className="xl:container w-full mx-auto grid grid-cols-2 gap-3 my-3 px-3">
-                <section className="grid gap-5 h-fit">
-                    {photosList[0].map(item => <Card key={random()} photo={item} />)}
-                </section>
-                <section className="grid gap-5 h-fit">
-                    {photosList[1].map(item => <Card key={random()} photo={item} />)}
-                </section>
-            </section>
-        )
-    }
-    else {
-        return (
-            <section className="w-full mx-auto grid gap-5 my-5">
-                <section className="grid gap-5 h-fit">
-                    {photos.map(item => <Card key={random()} photo={item} />)}
-                </section>
-            </section>
-        )
+            )
+        }
+    } else {
+        return <PhotosSkeleton />
     }
 }

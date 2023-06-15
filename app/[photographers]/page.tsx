@@ -1,6 +1,6 @@
 import { keywords, metadataObj, openGraph, twitter } from "../src/_meta/webText";
-import { Metadata, ResolvingMetadata } from 'next';
 import { redirect } from "next/navigation";
+import { Metadata } from 'next';
 import Contributions from "../src/_components/Photographer/Contributions";
 import Profile from "../src/_components/Photographer/Profile";
 import getPhotographer from "../src/_api/getPhotographer";
@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { photographers } }: Props): Pr
             description: metadataObj.home.desc
         }
     } else {
-        const res: ProfileFace = raw.response;
+        const res: ProfileFace = raw?.response as ProfileFace;
         const tags = res.tags.custom.map(item => { return item.title });
 
         const openGraphMeta = openGraph({ title: res?.name, description: res?.bio, url: `/@${res?.username}`, image: res.profile_image.large });
@@ -52,8 +52,8 @@ export default async function Page({ params: { photographers } }: { params: { ph
 
     return (
         <>
-            <Profile userData={raw.response} error={error} />
-            <Contributions contributions={raw.response} />
+            <Profile userData={raw?.response} error={error} />
+            <Contributions contributions={raw?.response} />
         </>
     )
 }

@@ -10,7 +10,7 @@ import Loading from "../Loading";
 import Photos from "./Photos";
 import Likes from "./Likes";
 
-export default function Contributions({ contributions }: { contributions: ProfileFace | null }) {
+export default function Contributions({ contributions }: { contributions: ProfileFace | null | undefined }) {
   const [tab, setTab] = useState('photos');
 
   if (!contributions) {
@@ -51,9 +51,8 @@ export default function Contributions({ contributions }: { contributions: Profil
               props={{
                 title: 'Photos',
                 text: false,
-                style: `border-b-2 border-transparent hover:border-gray-500/50 flex gap-2 items-center py-2 !px-3 !no-underline opacity-50 ${
-                  tab === 'photos' && '!border-gray-500 !opacity-100'
-                }`,
+                style: `border-b-2 border-transparent hover:border-gray-500/50 flex gap-2 items-center py-2 !px-3 !no-underline opacity-50 ${tab === 'photos' && '!border-gray-500 !opacity-100'
+                  }`,
                 value: 'photos',
                 funCall: setTab,
               }}
@@ -67,9 +66,8 @@ export default function Contributions({ contributions }: { contributions: Profil
               props={{
                 title: 'Likes',
                 text: false,
-                style: `border-b-2 border-transparent hover:border-gray-500/50 flex gap-2 items-center py-2 !px-3 !no-underline opacity-50 ${
-                  tab === 'likes' && '!border-gray-500 !opacity-100'
-                }`,
+                style: `border-b-2 border-transparent hover:border-gray-500/50 flex gap-2 items-center py-2 !px-3 !no-underline opacity-50 ${tab === 'likes' && '!border-gray-500 !opacity-100'
+                  }`,
                 value: 'likes',
                 funCall: setTab,
               }}
@@ -83,9 +81,8 @@ export default function Contributions({ contributions }: { contributions: Profil
               props={{
                 title: 'Collections',
                 text: false,
-                style: `border-b-2 border-transparent hover:border-gray-500/50 flex gap-2 items-center py-2 !px-3 !no-underline opacity-50 ${
-                  tab === 'collections' && '!border-gray-500 opacity-100'
-                }`,
+                style: `border-b-2 border-transparent hover:border-gray-500/50 flex gap-2 items-center py-2 !px-3 !no-underline opacity-50 ${tab === 'collections' && '!border-gray-500 opacity-100'
+                  }`,
                 value: 'collections',
                 funCall: setTab,
               }}

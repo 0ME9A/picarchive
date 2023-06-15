@@ -25,6 +25,7 @@ export default function Card({ photo }: { photo: BasicPhotoFace }) {
                     name={photo.user.name}
                     user_name={photo.user.username}
                     avatar_url={photo.user.profile_image.medium}
+                    style={`!text-black dark:!text-white sm:!text-white`}
                 />
                 <Link
                     href={`${photo.links.download}?force=true`}
