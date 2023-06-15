@@ -1,6 +1,6 @@
 "use client";
-import { BasicPhotoFace } from "unsplash-js/dist/methods/photos/types";
 import { picarchiveDescriptions } from "@/app/src/_meta/webText";
+import { BasicPhotoFace } from "../../_types/BasicPhotoFace";
 import { randomSelection } from "@/app/src/_functions";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
