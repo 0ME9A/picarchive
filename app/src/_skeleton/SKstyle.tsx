@@ -1,0 +1,1 @@
+export const basicStyle = "bg-gradient-to-tr from-lighter to-light dark:from-darker dark:to-dark animate-pulse";
