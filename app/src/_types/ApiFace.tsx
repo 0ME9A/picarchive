@@ -3,9 +3,8 @@ import { BasicPhotoFace } from "./BasicPhotoFace";
 import CollectionInfoFace from "./CollectionInfoFace";
 import CollectionFace from "./CollectionFace";
 import ProfileFace from "./ProfileFace";
-import TopicFace from "./TopicFace";
 import PhotoFace from "./ThePhotoFace";
-import { Full } from "unsplash-js/dist/methods/photos/types";
+import TopicFace from "./TopicFace";
 
 export interface GetPhotoListResponse {
     raw: ApiResponse<{
@@ -40,7 +39,7 @@ export interface GetTopicResponse {
 }
 
 export interface GetPhotographerResponse {
-    raw: ApiResponse<ProfileFace[]> | null;
+    raw: ApiResponse<ProfileFace> | null;
     error: boolean;
 }
 
