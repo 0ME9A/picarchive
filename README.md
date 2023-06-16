@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PicArchive
 
-## Getting Started
+PicArchive is a website that allows users to browse and download high-quality and beautiful photos curated by professional photographers. Users can explore a vast collection of photos across various categories and genres, and easily download them for personal or commercial use.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Browse and search for photos based on categories, tags, or photographers.
+- Download high-resolution photos in different formats.
+- Discover featured photographers and explore their portfolios.
+- Save favorite photos and create personalized collections.
+- Share photos on social media platforms.
+- User-friendly interface with a responsive design for a seamless browsing experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- React.js: Front-end JavaScript library for building user interfaces.
+- Next.js: React framework for server-rendered applications.
+- Tailwind CSS: Utility-first CSS framework for rapid UI development.
+- Unsplash API: Integration with the Unsplash API to fetch and display photos.
+- React Router: Library for routing and navigation within the application.
+- Axios: HTTP client for making API requests.
+- Jest: JavaScript testing framework for unit and integration tests.
+- GitHub Actions: Continuous Integration and Deployment pipeline.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Navigate to the project directory:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+3. Install the dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Start the development server:
+
+
+5. Open your browser and visit `http://localhost:3000` to access the PicArchive website.
+
+## Contributing
+
+Contributions are welcome! If you find any bugs or have suggestions for new features, please open an issue or submit a pull request. When contributing, please follow the existing code style and commit message conventions.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- The PicArchive website uses the Unsplash API to fetch and display photos. Special thanks to Unsplash for providing their amazing collection of photos and their API.
+- The design and layout of the website were inspired by various online photography platforms and websites.
+- Many thanks to the open-source community for the valuable libraries and tools used in this project.
+
+## Contact
+
+If you have any questions or feedback regarding the PicArchive website, please contact us at [heyome9a@gmail.com](mailto:heyome9a@gmail.com). We would be happy to hear from you!
+
+
