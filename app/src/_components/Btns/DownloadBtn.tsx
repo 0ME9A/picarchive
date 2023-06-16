@@ -50,7 +50,7 @@ export default function DownloadBtn({ downloadUrl, originalSize }: DownloadBtnFa
                     rel="nofollow noopener"
                     download={true}
                     data-test="non-sponsored-photo-download-button"
-                    className={`px-4 flex items-center justify-center rounded-l-lg border-2 border-transparent hover:border-xlight dark:hover:border-xdark bg-lighter dark:bg-darker `}>
+                    className={`px-4 w-full flex items-center justify-center rounded-l-lg border-2 border-transparent hover:border-xlight dark:hover:border-xdark bg-lighter dark:bg-darker `}>
                     Download Free
                 </NextLink>
                 <Btn

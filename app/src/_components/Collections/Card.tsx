@@ -15,7 +15,7 @@ export default function Card({ collection }: { collection: RelatedCollectionFace
         <figure className="w-full h-full rounded-lg overflow-hidden hover:brightness-110 relative shadow-xl shadow-gray-500/5 border-2 border-transparent hover:border-white dark:hover:border-black">
             <Link href={url} className="grid grid-cols-3 grid-rows-2">
                 <Image
-                    src={colletcion[0]?.urls.regular || "/img/shareMedia/twitter.png"}
+                    src={colletcion[0]?.urls.regular || "/img/notFoundImg.png"}
                     alt={collection.title}
                     width={500}
                     height={500}
@@ -24,7 +24,7 @@ export default function Card({ collection }: { collection: RelatedCollectionFace
                     className="row-start-1 col-start-1 row-end-3 col-end-3 aspect-square object-cover"
                 />
                 <Image
-                    src={colletcion[1]?.urls.regular || "/img/shareMedia/twitter.png"}
+                    src={colletcion[1]?.urls.regular || "/img/notFoundImg.png"}
                     alt={collection.title}
                     width={500}
                     height={500}
@@ -33,7 +33,7 @@ export default function Card({ collection }: { collection: RelatedCollectionFace
                     className="aspect-square object-cover"
                 />
                 <Image
-                    src={colletcion[2]?.urls.regular || "/img/shareMedia/twitter.png"}
+                    src={colletcion[2]?.urls.regular || "/img/notFoundImg.png"}
                     alt={collection.title}
                     width={500}
                     height={500}

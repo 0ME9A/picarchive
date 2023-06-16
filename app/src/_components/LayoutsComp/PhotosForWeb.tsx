@@ -12,6 +12,7 @@ export default function PhotosForWeb() {
             const { raw, error } = await getRandom();
             if (!error) dispatch(pphotos(raw?.response));
         }
+        call();
     }, []);
 
     return <></>

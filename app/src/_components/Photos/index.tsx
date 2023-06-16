@@ -42,7 +42,8 @@ export default function PhotoList({ photos, total = 0, error }: PhotoListFace) {
         return fixGlitch
     }, [isGlitch])
 
-    if (!isMount || isGlitch) return <PhotosSkeleton />
+    if (!isMount) return <PhotosSkeleton />
+    // if (!isMount || isGlitch) return <PhotosSkeleton />
 
     if (photos && photos.length > 0) {
         if (windowSize.width >= 1024) {
