@@ -98,20 +98,37 @@ export default function PhotoPreview({ photo }: { photo: PhotoFace | null | unde
             </div>
             <section className="p-3 sm:p-5 xl:container mx-auto space-y-2">
                 <div className="flex justify-end relative z-[5]">
-                    <DownloadBtn downloadUrl={photo.links.download} originalSize={{ width: photo.width, height: photo.height }} />
+                    <DownloadBtn downloadUrl={photo.links.download} originalSize={{ width: photo.width, height: photo.height }} photo={photo} />
                 </div>
-                <ul className="dark:text-white text-black opacity-70 font-thin text-sm">
+                <ul className="dark:text-white text-black opacity-70 font-thin text-sm space-y-1">
                     {photo.views ? <li ><AiFillEye className="inline mr-2" /> Views: {photo.views}</li> : null}
                     {photo.downloads ? <li><TfiDownload className="inline mr-2" /> Downloads: {photo.downloads}</li> : null}
                     {photo.location.name ? <li><HiOutlineLocationMarker className="inline mr-2" /> Location {photo.location.name}</li> : null}
                     {photo.created_at ? <li><AiOutlineCalendar className="inline mr-2" /> Published on {dateFunc(photo.created_at)}</li> : null}
-                    <li><FaUnsplash className="inline mr-2" /> Free to use under the <BasicLink props={{
-                        href: "https://unsplash.com/license",
-                        title: "Unsplash License",
-                        text: false,
-                        target: "_blank",
-                        style: "!p-0"
-                    }}> Unsplash License</BasicLink></li>
+                    <li>
+                        <FaUnsplash className="inline mr-2" />
+                        View on {" "}
+                        <BasicLink props={{
+                            href: `https://unsplash.com/photos/${photo.id}`,
+                            title: "View on unsplash",
+                            text: "Unsplash",
+                            target: "_blank",
+                            style: "!p-0"
+                        }}>
+                        </BasicLink>
+                    </li>
+                    <li>
+                        <FaUnsplash className="inline mr-2" />
+                        Free to use under the {" "}
+                        <BasicLink props={{
+                            href: "https://unsplash.com/license",
+                            title: "Unsplash License",
+                            text: "Unsplash License",
+                            target: "_blank",
+                            style: "!p-0"
+                        }}>
+                        </BasicLink>
+                    </li>
                 </ul>
                 <p className="text-black dark:text-white max-w-3xl opacity-60 py-5 capitalize">
                     {photo.description || photo.alt_description}

@@ -1,8 +1,12 @@
 "use client";
+import { BasicPhotoFace } from "../../_types/BasicPhotoFace";
+import { downloadMessage } from "../../_rtk/Store/reducers";
 import { useEffect, useRef, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { random } from "../../_functions";
+import { useDispatch } from "react-redux";
 import NextLink from "next/link";
+import api from "../../_api/api";
 import Btn from "./Btn";
 
 interface DownloadBtnFace {
@@ -10,7 +14,8 @@ interface DownloadBtnFace {
     originalSize: {
         width: number;
         height: number;
-    }
+    },
+    photo: BasicPhotoFace;
 }
 
 const photoSize = [
@@ -19,10 +24,16 @@ const photoSize = [
     { size: ["large", 2400] },
 ]
 
-export default function DownloadBtn({ downloadUrl, originalSize }: DownloadBtnFace) {
+export default function DownloadBtn({ downloadUrl, originalSize, photo }: DownloadBtnFace) {
     const [isOpen, setIsOpen] = useState(false);
-    const dialogRef = useRef<HTMLDivElement | null>(null); // Explicitly define the type
     const [isMount, setMount] = useState(false);
+    const dialogRef = useRef<HTMLDivElement | null>(null); // Explicitly define the type
+    const dispatch = useDispatch();
+
+    const handleCredit = () => {
+        dispatch(downloadMessage(photo));
+        api.photos.trackDownload({ downloadLocation: photo.links.download_location, });
+    }
 
     const handleOpen = () => {
         setIsOpen(true);
@@ -42,7 +53,9 @@ export default function DownloadBtn({ downloadUrl, originalSize }: DownloadBtnFa
 
     return (
         <div className="relative w-full sm:w-fit mb-5 sm:mb-0">
-            <div className="flex shadow-lg shadow-neutel/20 hover:shadow-neutel/40 rounded-lg">
+            <div
+                className="flex shadow-lg shadow-neutel/20 hover:shadow-neutel/40 rounded-lg"
+                onClick={handleCredit}>
                 <NextLink
                     href={`${downloadUrl}&force=true`}
                     target="_blank"
@@ -74,10 +87,11 @@ export default function DownloadBtn({ downloadUrl, originalSize }: DownloadBtnFa
                     {photoSize.map((item) => {
                         const photoAspectRatio = `${item.size[1]} x ${Math.ceil((item.size[1] as number * originalSize.height) / originalSize.width)}`;
                         return (
-                            <li key={random()}>
+                            <li
+                                key={random()}
+                                onClick={handleCredit}>
                                 <NextLink
                                     href={`${downloadUrl}&force=true&w=${item.size[1]}`}
-                                    // title={item.size[0] || "loading..."}
                                     title={`download photo, ratio ${photoAspectRatio}`}
                                     target="_blank"
                                     rel="nofollow noopener"
@@ -93,7 +107,9 @@ export default function DownloadBtn({ downloadUrl, originalSize }: DownloadBtnFa
                         )
                     })}
 
-                    <li key={random()}>
+                    <li
+                        key={random()}
+                        onClick={handleCredit}>
                         <NextLink
                             href={`${downloadUrl}&force=true`}
                             target="_blank"

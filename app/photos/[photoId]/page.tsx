@@ -1,6 +1,6 @@
 import { keywords, metadataObj, openGraph, twitter } from "@/app/src/_meta/webText";
-import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import PhotoPreview from "@/app/src/_components/Photos/Preview";
 import getRelatedPhotos from "@/app/src/_api/getRelatedPhotos";
 import Collections from "@/app/src/_components/Collections";
