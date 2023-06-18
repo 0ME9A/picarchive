@@ -5,8 +5,8 @@ interface BtnFace {
         title: string;
         text: string | false;
         style?: string;
-        value?: string | boolean | number
-        funCall: (e?: string | number | boolean) => void
+        value?: string | boolean | number | any
+        funCall: (e?: any) => void
     };
     children?: ReactNode;
 }

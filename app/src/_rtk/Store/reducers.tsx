@@ -6,7 +6,8 @@ interface initialStateFace {
     dialog: boolean,
     qualityWin: boolean;
     route: string | null;
-    pphotos: BasicPhotoFace[]
+    pphotos: BasicPhotoFace[];
+    downloadMessage: BasicPhotoFace | null;
 }
 
 const initialState: initialStateFace = {
@@ -14,7 +15,8 @@ const initialState: initialStateFace = {
     route: null,
     dialog: false,
     qualityWin: false,
-    pphotos: []
+    pphotos: [],
+    downloadMessage: null,
 }
 
 
@@ -35,13 +37,16 @@ const picarchiveSlice = createSlice({
             state.dialog = action.payload;
         },
         pphotos: (state, action) => {
-            state.pphotos = action.payload
+            state.pphotos = action.payload;
+        },
+        downloadMessage: (state, action) => {
+            state.downloadMessage = action.payload;
         }
     }
 })
 
 
-export const { qualityWin, theme, dialog, route, pphotos } = picarchiveSlice.actions;
+export const { qualityWin, theme, dialog, route, pphotos, downloadMessage } = picarchiveSlice.actions;
 export default picarchiveSlice.reducer;
 
 

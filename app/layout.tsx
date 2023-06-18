@@ -4,6 +4,7 @@ import PhotosForWeb from './src/_components/LayoutsComp/PhotosForWeb';
 import RTKLayout from './src/_components/LayoutsComp/rtkLayout';
 import Nav from './src/_components/LayoutsComp/Nav';
 import './globals.css';
+import DownloadMessage from './src/_components/LayoutsComp/DownloadMessage';
 
 export const metadata = metadata_template;
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           </header>
           <main>
             {children}
+            <DownloadMessage />
           </main>
         </RTKLayout>
       </body>
