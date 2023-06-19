@@ -54,8 +54,7 @@ export default function DownloadBtn({ downloadUrl, originalSize, photo }: Downlo
     return (
         <div className="relative w-full sm:w-fit mb-5 sm:mb-0">
             <div
-                className="flex shadow-lg shadow-neutel/20 hover:shadow-neutel/40 rounded-lg"
-                onClick={handleCredit}>
+                className="flex shadow-lg shadow-neutel/20 hover:shadow-neutel/40 rounded-lg">
                 <NextLink
                     href={`${downloadUrl}&force=true`}
                     target="_blank"
@@ -63,6 +62,7 @@ export default function DownloadBtn({ downloadUrl, originalSize, photo }: Downlo
                     rel="nofollow noopener"
                     download={true}
                     data-test="non-sponsored-photo-download-button"
+                    onClick={handleCredit}
                     className={`px-4 w-full flex items-center justify-center rounded-l-lg border-2 border-transparent hover:border-xlight dark:hover:border-xdark bg-lighter dark:bg-darker `}>
                     Download Free
                 </NextLink>
