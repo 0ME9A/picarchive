@@ -1,5 +1,6 @@
 import { createApi } from "unsplash-js";
 
-const api = createApi({accessKey: 'QHOyNnBvywnhju854gRnrvXOZgcfLoxDOT8EEDMao3c'});
+const key = process.env.NEXT_PUBLIC_ACCESS_KEY;
+const api = createApi({ accessKey: `${key}` });
 
-export default api
+export default api;

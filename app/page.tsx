@@ -5,8 +5,8 @@ import Home from "./src/_components/Pages/home";
 export const metadata: Metadata = {
   title: metadataObj.home.title,
   description: metadataObj.home.desc,
-}
+};
 
 export default function Page() {
-  return <Home />
+  return <Home />;
 }

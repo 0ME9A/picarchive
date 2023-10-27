@@ -5,7 +5,7 @@
 
 
 export default function ShareBtn({ title = '', url = '', style }: { title?: string, url?: string, style?: string }) {
-    return <></>
+    return <div className="text-white"></div>
 
     // const [isOpen, setIsOpen] = useState(false);
     // const dialogRef = useRef<HTMLDivElement | null>(null); // Explicitly define the type

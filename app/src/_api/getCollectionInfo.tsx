@@ -5,6 +5,8 @@ import api from "./api";
 
 
 export default async function getCollectionInfo(collectionId: string): Promise<GetCollectionInfoResponse> {
+    // console.log("getCollectionInfo called");
+
     try {
         const res = await api.collections.get({ collectionId }) as ApiResponse<CollectionInfoFace>;
         if (res.status === 200 && res.response) {

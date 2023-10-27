@@ -2,8 +2,11 @@
 import { random, splitArrayByCount } from "../../_functions";
 import { BasicPhotoFace } from "../../_types/BasicPhotoFace";
 import { useEffect, useState } from "react";
+// import Card from "./Card";
 import PhotosSkeleton from "../../_skeleton/Photos/SKPhotos";
-import Card from "./Card";
+import dynamic from "next/dynamic";
+
+const Card = dynamic(()=> import("./Card"))
 
 interface PhotoListFace {
     photos: BasicPhotoFace[] | null | undefined;
@@ -43,7 +46,6 @@ export default function PhotoList({ photos, total = 0, error }: PhotoListFace) {
     }, [isGlitch])
 
     if (!isMount) return <PhotosSkeleton />
-    // if (!isMount || isGlitch) return <PhotosSkeleton />
 
     if (photos && photos.length > 0) {
         if (windowSize.width >= 1024) {
